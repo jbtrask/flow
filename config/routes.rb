@@ -1,6 +1,7 @@
 Flow::Application.routes.draw do
+  
+  match "diagrams/random" => "diagrams#random"
   resources :shapes
-
   resources :diagrams
 
   # The priority is based upon order of creation:

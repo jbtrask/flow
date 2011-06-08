@@ -57,16 +57,11 @@ class ShapesController < ApplicationController
   # PUT /shapes/1.xml
   def update
     @shape = Shape.find(params[:id])
-
-    respond_to do |format|
-      if @shape.update_attributes(params[:shape])
-        format.html { redirect_to(@shape, :notice => 'Shape was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @shape.errors, :status => :unprocessable_entity }
-      end
-    end
+    @shape.x = params[:x]
+    @shape.y = params[:y]
+    @shape.width = params[:width]
+    @shape.height = params[:height]
+    @shape.save!
   end
 
   # DELETE /shapes/1

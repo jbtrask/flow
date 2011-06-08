@@ -1,5 +1,5 @@
 class Diagram < ActiveRecord::Base
   
-  has_many :shapes, :inverse_of => :diagram, :autosave => true
+  has_many :shapes
   
 end

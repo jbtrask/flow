@@ -1,5 +1,5 @@
 <div id="diagram">
-<% @diagram.shapes.select{|s| s.parent_id.nil?}.each do |shape|  %>
+<% @diagram.shapes.select{|s| s.parent.nil?}.each do |shape|  %>
 	<div id="shape_<%= shape.id %>" class="shape" style="top: <%= shape.y %>px; left: <%= shape.x %>px; width: <%= shape.width %>px; height: <%= shape.height %>px;">
 	</div>
 <% end %>
