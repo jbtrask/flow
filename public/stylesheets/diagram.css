@@ -26,14 +26,14 @@ div.shape {
 
 p#ajax_status {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100px;
+	top: 20px;
+	left: 20px;
+	width: 200px;
 	display: none;	
 }
 
 p#update_result {
 	position: absolute;
-	top: 0;
-	left: 100px;
+	top: 20px;
+	left: 240px;
 }

@@ -83,7 +83,7 @@ class DiagramsController < ApplicationController
   
   def random
     diagram = Diagram.create!(:title => 'Sample Diagram')
-    (1..4).each do
+    (1..8).each do
       diagram.shapes << Shape.new(:x => (rand * 500).ceil, :y => (rand * 400).ceil, :width => (100 + rand * 100).ceil, :height => (100 + rand * 100).ceil)
       puts diagram.shapes[diagram.shapes.size - 1].inspect
     end  

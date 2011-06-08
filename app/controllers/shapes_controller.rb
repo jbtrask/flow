@@ -57,13 +57,13 @@ class ShapesController < ApplicationController
   # PUT /shapes/1.xml
   def update
     @shape = Shape.find(params[:id])
-    @shape.x = params[:x]
-    @shape.y = params[:y]
-    @shape.width = params[:width]
-    @shape.height = params[:height]
+    @shape.x = params[:x] unless params[:x].nil?
+    @shape.y = params[:y] unless params[:y].nil?
+    @shape.width = params[:width] unless params[:width].nil?
+    @shape.height = params[:height] unless params[:height].nil?
     @shape.save!
     respond_to do |format|
-      format.json  { render :json => Shape.find(@shape.id) }
+      format.json  { render :json => params } # render :json => Shape.find(@shape.id) }
     end
   end
 
