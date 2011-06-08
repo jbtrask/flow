@@ -23,3 +23,17 @@ div.shape {
 	position: absolute;
 	background-color: #00F;
 }
+
+p#ajax_status {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	display: none;	
+}
+
+p#update_result {
+	position: absolute;
+	top: 0;
+	left: 100px;
+}

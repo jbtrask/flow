@@ -62,6 +62,9 @@ class ShapesController < ApplicationController
     @shape.width = params[:width]
     @shape.height = params[:height]
     @shape.save!
+    respond_to do |format|
+      format.json  { render :json => Shape.find(@shape.id) }
+    end
   end
 
   # DELETE /shapes/1

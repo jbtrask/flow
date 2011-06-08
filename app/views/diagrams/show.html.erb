@@ -1,4 +1,6 @@
 <div id="diagram">
+<p id="ajax_status">AJAX in processs..</p>
+<p id="update_result"></p>
 <% @diagram.shapes.select{|s| s.parent.nil?}.each do |shape|  %>
 	<div id="shape_<%= shape.id %>" class="shape" style="top: <%= shape.y %>px; left: <%= shape.x %>px; width: <%= shape.width %>px; height: <%= shape.height %>px;">
 	</div>
