@@ -1,0 +1,24 @@
+<div id="diagram">
+<% @diagram.shapes.select{|s| s.parent_id.nil?}.each do |shape|  %>
+	<div id="shape_<%= shape.id %>" class="shape" style="top: <%= shape.y %>px; left: <%= shape.x %>px; width: <%= shape.width %>px; height: <%= shape.height %>px;">
+	</div>
+<% end %>
+</div>
+
+<!-- 
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @diagram.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @diagram.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_diagram_path(@diagram) %> |
+<%= link_to 'Back', diagrams_path %>
+-->

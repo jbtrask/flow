@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>X:</b>
+  <%= @shape.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @shape.y %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @shape.width %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @shape.height %>
+</p>
+
+
+<%= link_to 'Edit', edit_shape_path(@shape) %> |
+<%= link_to 'Back', shapes_path %>

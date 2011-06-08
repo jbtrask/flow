@@ -1,4 +1,8 @@
 Flow::Application.routes.draw do
+  resources :shapes
+
+  resources :diagrams
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
