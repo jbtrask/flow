@@ -22,7 +22,7 @@ $$(document).ready(function() {
 	});
 	
 	$$("#ajax_status").ajaxComplete(function(event, jqXHR, ajaxOptions){
-		// $$("#update_result").html(jqXHR.responseText).fadeIn(2000);
+		$$("#update_result").html(jqXHR.responseText).fadeIn(2000);
 		$$(this).fadeOut(400);		
 	});
 	

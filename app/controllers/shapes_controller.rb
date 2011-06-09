@@ -63,7 +63,7 @@ class ShapesController < ApplicationController
     @shape.height = params[:height] unless params[:height].nil?
     @shape.save!
     respond_to do |format|
-      format.json  { render :json => params } # render :json => Shape.find(@shape.id) }
+      format.json  { render :json => Shape.find(@shape.id) }
     end
   end
 
