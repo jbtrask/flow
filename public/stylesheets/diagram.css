@@ -21,7 +21,7 @@ div#diagram {
 
 div.shape {
 	position: absolute;
-	background-color: rgba(200, 200, 200, .5);
+	background-color: rgba(200, 200, 200, .8);
 }
 
 p#ajax_status {
