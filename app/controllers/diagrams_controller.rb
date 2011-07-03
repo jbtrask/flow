@@ -83,11 +83,12 @@ class DiagramsController < ApplicationController
   
   def random
     diagram = Diagram.create!(:title => 'Sample Diagram')
-    (1..8).each do
-      diagram.shapes << Shape.new(:x => (rand * 500).ceil, :y => (rand * 400).ceil, :width => (100 + rand * 100).ceil, :height => (100 + rand * 100).ceil)
-      puts diagram.shapes[diagram.shapes.size - 1].inspect
-    end  
-    puts diagram.save!    
+    ShapeType.all.each do |type|
+      (1..2).each do 
+        diagram.shapes << Shape.new(:type_id => type.id, :x => (rand * 500).ceil, :y => (rand * 400).ceil, :width => (100 + rand * 100).ceil, :height => (100 + rand * 100).ceil)
+      end  
+    end
+    diagram.save!    
     redirect_to diagram_path(diagram)
   end
   

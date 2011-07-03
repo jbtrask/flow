@@ -61,6 +61,7 @@ class ShapesController < ApplicationController
     @shape.y = params[:y] unless params[:y].nil?
     @shape.width = params[:width] unless params[:width].nil?
     @shape.height = params[:height] unless params[:height].nil?
+    params[:parent].nil? ? @shape.parent = nil : @shape.parent = Shape.find(params[:parent])
     @shape.save!
     respond_to do |format|
       format.json  { render :json => Shape.find(@shape.id) }

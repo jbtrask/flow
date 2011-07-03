@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @shape_type.name %>
+</p>
+
+<p>
+  <b>Container:</b>
+  <%= @shape_type.container %>
+</p>
+
+
+<%= link_to 'Edit', edit_shape_type_path(@shape_type) %> |
+<%= link_to 'Back', shape_types_path %>

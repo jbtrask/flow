@@ -19,11 +19,6 @@ div#diagram {
 	min-height: 100%;
 }
 
-div.shape {
-	position: absolute;
-	background-color: rgba(200, 200, 200, .8);
-}
-
 p#ajax_status {
 	position: absolute;
 	top: 20px;

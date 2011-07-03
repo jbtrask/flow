@@ -1,5 +1,7 @@
 Flow::Application.routes.draw do
   
+  resources :shape_types
+
   match "diagrams/random" => "diagrams#random"
   resources :shapes
   resources :diagrams

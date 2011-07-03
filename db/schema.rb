@@ -10,11 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607165626) do
+ActiveRecord::Schema.define(:version => 20110703194526) do
 
   create_table "diagrams", :force => true do |t|
     t.string   "title"
     t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shape_types", :force => true do |t|
+    t.string   "name"
+    t.boolean  "container"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110607165626) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type_id"
   end
 
 end
