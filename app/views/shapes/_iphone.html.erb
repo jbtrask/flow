@@ -1,5 +1,0 @@
-<div id="shape_<%= shape.id %>" class="shape <%= shape.type.class_name %><%= shape.type.container ? " container" : "" %>" style="top: <%= shape.y %>px; left: <%= shape.x %>px; width: <%= 320 %>px; height: <%= 480 %>px;" draggable="true">
-	<% shape.children.each do |child| %>
-		<%= render :partial => "shapes/#{shape.type.class_name}", :locals => { :shape => child } %>
-	<% end %>
-</div>

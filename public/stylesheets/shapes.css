@@ -1,14 +1,28 @@
 div.shape {
 	position: absolute;
-	background-color: rgba(200, 200, 200, 0.8);
 }
 
-div.iphone {
-	background-color: rgba(0, 0, 200, 0.5);
-	border: solid 3px rgba(0, 0, 0, 1.0);
+.device {
+	background: url(/images/device_left.png) left center no-repeat, url(/images/device_top.png) top center no-repeat, url(/images/device_right.png) right center no-repeat, url(/images/device_bottom.png) bottom center no-repeat;
+	height: 743px;
+	width: 380px;
 }
 
-div.text_field {
-	background-color: rgba(0, 200, 0, 0.5);
-	border: solid 3px rgba(0, 0, 0, 1.0);
+.screen {
+	background: rgba(200, 200, 200, .15) url(/images/top_bar.png) top center no-repeat;
+	height: 480px;
+	left: 8.5%;
+	position: relative;
+	top: 17.9%;
+	width: 320px;
+}
+
+.header {
+	background: url(/images/header.png) center center;
+	color: rgba(255, 255, 255, 1);
+	font: bold 18px/42px Helvetica;
+	height: 44px;
+	text-align: center;
+	text-shadow: -1px -1px 1px rgba(25, 25, 25, .25);
+	width: 320px;
 }
