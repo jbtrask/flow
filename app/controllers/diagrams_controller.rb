@@ -92,4 +92,8 @@ class DiagramsController < ApplicationController
     redirect_to diagram_path(diagram)
   end
   
+  def grid
+    
+  end
+  
 end

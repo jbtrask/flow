@@ -1,5 +1,5 @@
 var $$ = jQuery.noConflict();
-
+/* 
 $$(document).ready(function() {
 	
 	document.getElementById('diagram').addEventListener('dragover', function(e) { if (e.preventDefault) { e.preventDefault(); } return false; });
@@ -58,5 +58,6 @@ function moveShape(shape, parent, x, y, offsetX, offsetY) {
 		data: "x=" + (x - offsetX) + "&y=" + (y - offsetY) + (parent == null ? "" : "&parent=" + parent)
 	});	
 }
+*/
 
 		

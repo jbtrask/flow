@@ -3,6 +3,7 @@ Flow::Application.routes.draw do
   resources :shape_types
 
   match "diagrams/random" => "diagrams#random"
+  match "diagrams/grid" => "diagrams#grid"
   resources :shapes
   resources :diagrams
 
