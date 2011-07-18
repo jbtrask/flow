@@ -93,7 +93,11 @@ class DiagramsController < ApplicationController
   end
   
   def grid
-    
+    @diagram = Diagram.create!(:title => 'Sample Diagram')
+    (1..3).each do |i|
+      @diagram.shapes << Shape.new(:type_id => 1, :x => 380 * (i - 1), :y => 0, :width => 380, :height => 743)
+    end
+    @diagram.save!
   end
   
 end

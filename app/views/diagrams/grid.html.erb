@@ -1,4 +1,11 @@
+<p id="ajax_status">Saving...</p>
+<p id="update_result"></p>
+
 <canvas id="grid"></canvas>
+
+<% @diagram.shapes(true).select{|s| s.parent.nil?}.each do |shape| %>
+	<%= render :partial => "shapes/#{shape.type.class_name}", :locals => { :shape => shape } %>
+<% end %>
 
 <% content_for :head do %>
 	<%= javascript_include_tag "grid" %> 
