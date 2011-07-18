@@ -43,15 +43,16 @@ $$(document).ready(function() {
 	context.strokeStyle = "rgba(0, 0, 0, .15)";
 	context.stroke();
 
-	document.getElementById('grid').addEventListener('dragover', function(e) { if (e.preventDefault) { e.preventDefault(); } return false; });
-	document.getElementById('grid').addEventListener('dragenter', function(e) { if (e.preventDefault) { e.preventDefault(); } return false; });
-	document.getElementById('grid').addEventListener('drop', function(e) { 
-		console.log('grid drop');
-		var data = e.dataTransfer.getData("text").split(",");	
-		moveShape(data[0], null, e.x, e.y, data[1], data[2]); 
-	});
+	document.getElementById('grid').addEventListener('dragover', cancelEvent);
+	document.getElementById('grid').addEventListener('dragenter', cancelEvent);
+	document.getElementById('grid').addEventListener('drop', dropShape);
 
 	$$(".shape").each(function() {
+		
+		document.getElementById(this.id).addEventListener('dragover', cancelEvent);
+		document.getElementById(this.id).addEventListener('dragenter', cancelEvent);
+		document.getElementById(this.id).addEventListener('drop', dropShape);
+		
 		document.getElementById(this.id).addEventListener('dragstart', function(e) { 
 			$$(".shape:not(.container)").css('opacity', 0.2);
 			var id = e.target.id.slice(e.target.id.indexOf("_") + 1);
@@ -73,21 +74,38 @@ $$(document).ready(function() {
 	});
 });
 
+function cancelEvent(e) { 
+	if (e.preventDefault) 
+		e.preventDefault(); 
+	return false; 
+}
+
+function dropShape(e) {
+	console.log('drop shape');
+	var data = e.dataTransfer.getData("text").split(",");	
+	moveShape(data[0], null, e.x, e.y, data[1], data[2]);
+	e.stopPropogation();
+	e.preventDefault();
+	return true;
+}
+
 function moveShape(shape, parent, x, y, offsetX, offsetY) {
 
 	var actualX = x - offsetX;
 	var leftX = horizontalSpacing * Math.floor(parseFloat(actualX) / parseFloat(horizontalSpacing)); 
 	var rightX = horizontalSpacing * Math.ceil(parseFloat(actualX) / parseFloat(horizontalSpacing)) 
 	var correctedX = (actualX - leftX < rightX - actualX) ? leftX : rightX;
+	correctedX = (correctedX < 0) ? 0 : correctedX; 
 	correctedX = (correctedX > horizontalMax) ? horiztonalMax : correctedX; 
 
 	var actualY = y - offsetY;
 	var upperY = topMargin + (rowHeight + verticalGutter) * Math.floor(parseFloat(actualY - topMargin) / parseFloat(rowHeight + verticalGutter)); 
 	var lowerY = topMargin + (rowHeight + verticalGutter) * Math.ceil(parseFloat(actualY - topMargin) / parseFloat(rowHeight + verticalGutter)); 
 	var correctedY = (actualY - upperY < lowerY - actualY) ? upperY : lowerY;
+	correctedY = (correctedY < topMargin) ? topMargin : correctedY; 
 	correctedY = (correctedY > verticalMax) ? verticalMax : correctedY; 
 
-	$$("#shape_" + shape).css("left", correctedX + "px").css("top", correctedY + "px");
+	$$("#shape_" + shape).css("left", actualX + "px").css("top", actualY + "px").animate({left: correctedX + "px", top: correctedY + "px"}, 200);
 	$$.ajax("/shapes/" + shape + ".json", { 
 		type: "PUT", 
 		data: "x=" + correctedX + "&y=" + correctedY + (parent == null ? "" : "&parent=" + parent)
